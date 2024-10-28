@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoviBank.Domain", "src\NoviBank.Domain\NoviBank.Domain.csproj", "{9967EB01-2F5D-43C5-8535-EB2C6E846415}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoviBank.Infrastructure", "src\NoviBank.Infrastructure\NoviBank.Infrastructure.csproj", "{F9F72142-AD39-4D44-B135-3E485E552924}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoviBank.Application", "src\NoviBank.Application\NoviBank.Application.csproj", "{D25B7446-2917-4FC1-A3AE-11E3F29F9ED1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6062608A-6702-4397-BE86-D71ACBB7C522}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{236228F8-9309-43A0-98FD-41835319C031}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoviBank.WebServer", "src\NoviBank.WebServer\NoviBank.WebServer.csproj", "{E1A79AA1-4414-4214-B7EA-7874C20393F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECB.ApiClient", "src\ECB.ApiClient\ECB.ApiClient.csproj", "{010E0606-136C-44B9-87D2-6D474C766EB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECB.Client", "tests\ECB.Client\ECB.Client.csproj", "{81C4D5C6-4328-45A6-800A-4E07AB778958}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9967EB01-2F5D-43C5-8535-EB2C6E846415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9967EB01-2F5D-43C5-8535-EB2C6E846415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9967EB01-2F5D-43C5-8535-EB2C6E846415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9967EB01-2F5D-43C5-8535-EB2C6E846415}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9F72142-AD39-4D44-B135-3E485E552924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9F72142-AD39-4D44-B135-3E485E552924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9F72142-AD39-4D44-B135-3E485E552924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9F72142-AD39-4D44-B135-3E485E552924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D25B7446-2917-4FC1-A3AE-11E3F29F9ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D25B7446-2917-4FC1-A3AE-11E3F29F9ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D25B7446-2917-4FC1-A3AE-11E3F29F9ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D25B7446-2917-4FC1-A3AE-11E3F29F9ED1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A79AA1-4414-4214-B7EA-7874C20393F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A79AA1-4414-4214-B7EA-7874C20393F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A79AA1-4414-4214-B7EA-7874C20393F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A79AA1-4414-4214-B7EA-7874C20393F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{010E0606-136C-44B9-87D2-6D474C766EB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{010E0606-136C-44B9-87D2-6D474C766EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{010E0606-136C-44B9-87D2-6D474C766EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{010E0606-136C-44B9-87D2-6D474C766EB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C4D5C6-4328-45A6-800A-4E07AB778958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C4D5C6-4328-45A6-800A-4E07AB778958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C4D5C6-4328-45A6-800A-4E07AB778958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C4D5C6-4328-45A6-800A-4E07AB778958}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9967EB01-2F5D-43C5-8535-EB2C6E846415} = {6062608A-6702-4397-BE86-D71ACBB7C522}
+		{F9F72142-AD39-4D44-B135-3E485E552924} = {6062608A-6702-4397-BE86-D71ACBB7C522}
+		{D25B7446-2917-4FC1-A3AE-11E3F29F9ED1} = {6062608A-6702-4397-BE86-D71ACBB7C522}
+		{E1A79AA1-4414-4214-B7EA-7874C20393F4} = {6062608A-6702-4397-BE86-D71ACBB7C522}
+		{010E0606-136C-44B9-87D2-6D474C766EB7} = {6062608A-6702-4397-BE86-D71ACBB7C522}
+		{81C4D5C6-4328-45A6-800A-4E07AB778958} = {236228F8-9309-43A0-98FD-41835319C031}
+	EndGlobalSection
+EndGlobal
