@@ -8,6 +8,10 @@ public class Wallet : AggregateRoot<DefaultGuidId>
     public Currency Currency { get; private set; }
     public decimal Balance { get; private set; }
 
+    public DateTime ValidFrom { get; set; }
+
+    public DateTime ValidTo { get; set; }
+
     private Wallet()
     {
         // For EF Only.

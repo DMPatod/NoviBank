@@ -1,8 +1,10 @@
-﻿namespace NoviBank.Domain.Currencies;
+﻿using DDD.Core.DomainObjects;
 
-public class Currency
+namespace NoviBank.Domain.Currencies;
+
+public class Currency : AggregateRoot<DefaultGuidId>
 {
     public string Name { get; set; }
     public decimal Value { get; set; }
-    public DateTime Created_At { get; set; }
+    public DateTime Updated_At { get; set; }
 }

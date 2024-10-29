@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Reflection;
+using DDD.Core.Handlers;
+using Microsoft.Extensions.DependencyInjection;
 using NoviBank.Application.Currencies;
 using Quartz;
 
@@ -15,6 +17,8 @@ public static class BuildHandler
             c.AddTrigger(c => c.ForJob(key).WithIdentity("CurrencyUpdater-Trigger").WithCronSchedule("0 * * ? * *"));
         });
         services.AddQuartzHostedService();
+
+        services.AddDefaultMessageHandler(Assembly.GetExecutingAssembly());
 
         return services;
     }

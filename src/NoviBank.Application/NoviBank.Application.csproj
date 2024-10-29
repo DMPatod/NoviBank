@@ -13,6 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ECB.ApiClient\ECB.ApiClient.csproj" />
       <ProjectReference Include="..\NoviBank.Domain\NoviBank.Domain.csproj" />
       <ProjectReference Include="..\NoviBank.Infrastructure\NoviBank.Infrastructure.csproj" />
     </ItemGroup>
