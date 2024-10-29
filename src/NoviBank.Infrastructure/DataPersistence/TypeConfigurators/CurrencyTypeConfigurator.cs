@@ -22,8 +22,8 @@ public class CurrencyTypeConfigurator : IEntityTypeConfiguration<Currency>
         builder.Property(c => c.Name)
             .IsRequired();
 
-        builder.Property(c => c.Value)
-            .HasPrecision(5)
+        builder.Property(c => c.Rate)
+            .HasPrecision(5,5)
             .IsRequired();
     }
 }

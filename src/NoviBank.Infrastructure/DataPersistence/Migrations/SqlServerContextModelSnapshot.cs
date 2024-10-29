@@ -31,12 +31,12 @@ namespace ECB.Infrastructure.DataPersistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Rate")
+                        .HasPrecision(5, 5)
+                        .HasColumnType("decimal(5,5)");
+
                     b.Property<DateTime>("Updated_At")
                         .HasColumnType("datetime2");
-
-                    b.Property<decimal>("Value")
-                        .HasPrecision(5)
-                        .HasColumnType("decimal(5,2)");
 
                     b.HasKey("Id");
 
@@ -49,8 +49,8 @@ namespace ECB.Infrastructure.DataPersistence.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Balance")
-                        .HasPrecision(5)
-                        .HasColumnType("decimal(5,2)");
+                        .HasPrecision(5, 5)
+                        .HasColumnType("decimal(5,5)");
 
                     b.Property<Guid>("CurrencyId")
                         .HasColumnType("uniqueidentifier");

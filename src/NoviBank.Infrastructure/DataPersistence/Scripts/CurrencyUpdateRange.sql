@@ -9,8 +9,8 @@
         ON target.Name = source.Name
         WHEN MATCHED THEN 
             UPDATE SET
-                target.Value = source.Rate
+                target.Rate = source.Rate
         WHEN NOT MATCHED THEN 
-            INSERT (Id, Name, Value, Updated_At)
+            INSERT (Id, Name, Rate, Updated_At)
             VALUES (source.Id, source.Name, source.Rate, source.Date);
     END;
