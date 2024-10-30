@@ -26,7 +26,9 @@ public class EcbCurrencyUpdater : IJob
 
         _logger.Log(LogLevel.Information, $"Fetched {ecbExchanges.Count} exchanges.");
 
-        var command = new UpdateCurrenciesFromEcbCommand(ecbExchanges);
+        var command = new RangeAddCurrencyCommand(
+            ecbExchanges.Select(e => new CurrencyItem(e.Currency, e.Rate)).ToList(),
+            ecbExchanges[0].Time);
         var result = await _messageHandler.SendAsync(command, default);
         if (result.IsFailed)
         {

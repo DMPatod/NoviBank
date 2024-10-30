@@ -14,7 +14,9 @@ public static class BuildHandler
         {
             var key = new JobKey("CurrencyUpdater");
             c.AddJob<EcbCurrencyUpdater>(c => c.WithIdentity(key));
-            c.AddTrigger(c => c.ForJob(key).WithIdentity("CurrencyUpdater-Trigger").WithCronSchedule("0 * * ? * *"));
+            c.AddTrigger(c =>
+                c.ForJob(key).WithIdentity("CurrencyUpdater-Trigger").StartAt(DateTimeOffset.Now.AddMinutes(5))
+                    .WithSimpleSchedule(s => s.WithInterval(TimeSpan.FromMinutes(5)).RepeatForever()));
         });
         services.AddQuartzHostedService();
 

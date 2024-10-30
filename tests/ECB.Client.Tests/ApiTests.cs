@@ -1,6 +1,6 @@
 using ECB.ApiClient.Api;
 
-namespace ECB.Client;
+namespace ECB.Client.Tests;
 
 public class ApiTests
 {

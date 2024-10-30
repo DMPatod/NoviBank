@@ -10,13 +10,13 @@ namespace ECB.Infrastructure.DataPersistence.SqlServer.Repositories;
 
 public class CurrencyRepository : ICurrencyRepository
 {
-    private readonly ILogger<CurrencyRepository> _logger;
     private readonly SqlServerContext _context;
+    private readonly ILogger<CurrencyRepository> _logger;
 
-    public CurrencyRepository(ILogger<CurrencyRepository> logger, SqlServerContext context)
+    public CurrencyRepository(SqlServerContext context, ILogger<CurrencyRepository> logger)
     {
-        _logger = logger;
         _context = context;
+        _logger = logger;
     }
 
     public Task<Currency?> FindAsync(DefaultGuidId id, CancellationToken cancellationToken = new CancellationToken())
@@ -50,35 +50,24 @@ public class CurrencyRepository : ICurrencyRepository
         throw new NotImplementedException();
     }
 
-    public async Task UpdateRangeAsync(IList<(string, decimal)> pairs, DateOnly date,
+    public async Task MergeRangeAsync(IEnumerable<(string, decimal)> pairs, DateOnly date,
         CancellationToken cancellationToken = default)
     {
-        var paramsTable = new DataTable();
-        
-        paramsTable.Columns.Add("Id", typeof(Guid));
-        paramsTable.Columns.Add("Name", typeof(string));
-        paramsTable.Columns.Add("Rate", typeof(decimal));
-        paramsTable.Columns.Add("Date", typeof(DateTime));
-
+        var persistedEntities = await _context.Set<Currency>().Where(c => pairs.Select(p => p.Item1).Contains(c.Name))
+            .ToDictionaryAsync(c => c.Name, cancellationToken);
         foreach (var item in pairs)
         {
-            paramsTable.Rows.Add(DefaultGuidId.Create(), item.Item1, item.Item2, date.ToDateTime(TimeOnly.MinValue));
+            if (persistedEntities.TryGetValue(item.Item1, out var entity))
+            {
+                entity.Rate = item.Item2;
+                _context.Update(entity);
+            }
+            else
+            {
+                _context.Add(Currency.Create(item.Item1, item.Item2));
+            }
         }
 
-        await using var command = _context.Database.GetDbConnection().CreateCommand();
-        
-        command.CommandText = "dbo.CurrencyUpdateRange";
-        command.CommandType = CommandType.StoredProcedure;
-        command.Parameters.Insert(0, paramsTable);
-        
-        var param = command.CreateParameter();
-        
-        param.ParameterName = "@Currencies";
-        param.DbType = DbType.Object;
-        param.Value = paramsTable;
-        
-        command.Parameters.Add(param);
-
-        await command.ExecuteNonQueryAsync(cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
     }
 }

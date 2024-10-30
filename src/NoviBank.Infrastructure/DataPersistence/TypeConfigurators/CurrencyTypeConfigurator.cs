@@ -23,7 +23,7 @@ public class CurrencyTypeConfigurator : IEntityTypeConfiguration<Currency>
             .IsRequired();
 
         builder.Property(c => c.Rate)
-            .HasPrecision(5,5)
+            .HasPrecision(18,5)
             .IsRequired();
     }
 }

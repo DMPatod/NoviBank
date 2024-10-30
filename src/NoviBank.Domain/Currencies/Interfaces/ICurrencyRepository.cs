@@ -5,5 +5,6 @@ namespace NoviBank.Domain.Currencies.Interfaces;
 
 public interface ICurrencyRepository : IBaseRepository<Currency, DefaultGuidId>
 {
-    Task UpdateRangeAsync(IList<(string, decimal)> pairs, DateOnly date, CancellationToken cancellationToken = default);
+    Task MergeRangeAsync(IEnumerable<(string, decimal)> currencies, DateOnly date,
+        CancellationToken cancellationToken = default);
 }

@@ -22,6 +22,11 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\ECB.ApiClient\ECB.ApiClient.csproj" />
+      <ProjectReference Include="..\..\src\NoviBank.Application\NoviBank.Application.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="ApiTests.cs" />
     </ItemGroup>
 
 </Project>

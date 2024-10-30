@@ -24,7 +24,7 @@ public class WalletTypeConfigurator : IEntityTypeConfiguration<Wallet>
             .IsRequired();
 
         builder.Property(w => w.Balance)
-            .HasPrecision(5,5)
+            .HasPrecision(18,5)
             .IsRequired();
         
         
