@@ -6,7 +6,7 @@ namespace NoviBank.Domain.Wallets;
 public class Wallet : AggregateRoot<DefaultGuidId>
 {
     public Currency Currency { get; private set; }
-    public decimal Balance { get; private set; }
+    public decimal Balance { get; set; }
 
     public DateTime ValidFrom { get; set; }
 

@@ -43,6 +43,19 @@ public class WalletsController : Controller
         return Ok(result.ValueOrDefault);
     }
 
+    [HttpPost("{id}")]
+    public async Task<IActionResult> UpdateWallet([FromRoute] string id, [FromBody] UpdateWalletRequest request)
+    {
+        var command = new UpdateWalletCommand(request.Strategy, id, request.Amount, request.CurrencyId);
+        var result = await _messageHandler.SendAsync(command, CancellationToken.None);
+        if (result.IsFailed)
+        {
+            throw new Exception();
+        }
+
+        return Ok(result.ValueOrDefault);
+    }
+
     [HttpPost]
     public async Task<IActionResult> AddWallet([FromBody] AddWalletRequest request)
     {

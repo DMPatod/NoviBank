@@ -2,6 +2,7 @@
 using DDD.Core.Handlers;
 using Microsoft.Extensions.DependencyInjection;
 using NoviBank.Application.Currencies;
+using NoviBank.Application.Wallets.Services;
 using Quartz;
 
 namespace NoviBank.Application;
@@ -21,6 +22,10 @@ public static class BuildHandler
         services.AddQuartzHostedService();
 
         services.AddDefaultMessageHandler(Assembly.GetExecutingAssembly());
+
+        services.AddTransient<AddFundsWalletStrategy>();
+        services.AddTransient<ForceSubtractFundsStrategy>();
+        services.AddTransient<SubtractFundsStrategy>();
 
         return services;
     }

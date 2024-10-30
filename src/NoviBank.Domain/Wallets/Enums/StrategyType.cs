@@ -1,6 +1,6 @@
 ﻿namespace NoviBank.Domain.Wallets.Enums;
 
-public enum Strategy
+public enum StrategyType
 {
     AddFunds,
     SubtractFunds,

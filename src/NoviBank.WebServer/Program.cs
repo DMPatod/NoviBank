@@ -1,5 +1,6 @@
 using NoviBank.Application;
 using ECB.Infrastructure;
+using FluentValidation.AspNetCore;
 
 namespace ECB.WebServer;
 
@@ -10,6 +11,7 @@ internal class Program
         var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+        builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
         builder.Services.AddApplication();
         builder.Services.AddInfrastructure(builder.Configuration);
 

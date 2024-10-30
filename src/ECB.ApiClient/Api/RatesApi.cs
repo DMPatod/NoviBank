@@ -6,7 +6,6 @@ namespace ECB.ApiClient.Api;
 
 public interface IRatesApi : IApiAccessor
 {
-    
 }
 
 public partial class RatesApi : IRatesApi
@@ -20,7 +19,7 @@ public partial class RatesApi : IRatesApi
 
     public string GetBasePath()
     {
-        throw new NotImplementedException();
+        return Configuration.HttpClient.BaseAddress.ToString();
     }
 
     public async Task<IList<Exchange>> ApiCurrencyGetAsync()
